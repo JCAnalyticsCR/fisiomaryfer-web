@@ -406,3 +406,6 @@ body.menu-open{overflow:hidden}
 
 @media (max-width:359px){.brand span{font-size:20px}.brand svg{display:none}.btn--sm{padding:0 12px}}
 
+
+/* Móvil: sin botón de WhatsApp en el header (ya están el hero y la barra inferior) */
+@media (max-width:767px){.hdr__act .btn--wa{display:none}}
