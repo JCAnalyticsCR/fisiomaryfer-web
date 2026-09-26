@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Rehabilitación oncológica en Santa Ana y Acosta | FisioMaryFer</title>
+<meta name="description" content="Fisioterapia oncológica en Santa Ana y Palmichal de Acosta. Atención cercana para pacientes de Ciudad Colón, Puriscal, Acosta y alrededores.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..700,100;1,9..144,300..700,100&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Allura&display=swap" rel="stylesheet">
+<style>
+html{scroll-behavior:smooth}
+body{margin:0;background:#FBF7F0;color:#2B2F2E;font-family:'DM Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#134B47}a:hover{color:#A9583C}
+*{box-sizing:border-box}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+</style>
+</helmet>
+
+<div style="position:relative;overflow-x:clip;background:#FBF7F0;min-height:100vh">
+
+<!-- 9.1 HEADER -->
+<header style="position:sticky;top:0;z-index:40;background:rgba(251,247,240,0.95);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(19,75,71,0.12);transition:padding .3s ease;padding:{{ hdrPad }}">
+  <div style="max-width:1240px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px">
+    <a href="#inicio" style="display:flex;align-items:baseline;gap:6px;text-decoration:none;color:#134B47">
+      <svg width="24" height="18" viewBox="0 0 30 22" aria-hidden="true"><path d="M15 2c3.2 4.2 3.2 11 0 18c-3.2-7-3.2-13.8 0-18z" fill="#134B47"></path><path d="M15 20c-2.4-6.6-6.6-9.6-12.6-9.6c1.2 5.6 5.6 9.6 12.6 9.6z" fill="#CFE5DF" stroke="#134B47" stroke-width="1"></path><path d="M15 20c2.4-6.6 6.6-9.6 12.6-9.6c-1.2 5.6-5.6 9.6-12.6 9.6z" fill="#F6D6DF" stroke="#E0628F" stroke-width="1"></path></svg>
+      <span style="font-family:'Fraunces',serif;font-style:italic;font-size:25px;font-weight:500;letter-spacing:-0.3px;line-height:1">{{ marca }}</span>
+    </a>
+    <sc-if value="{{ wide }}" hint-placeholder-val="{{ false }}">
+      <nav style="display:flex;gap:24px;font-size:15px;font-weight:500">
+        <a href="#sobre-mi" style="color:#134B47;text-decoration:none">Sobre mí</a>
+        <a href="#servicios" style="color:#134B47;text-decoration:none">Servicios</a>
+        <a href="#como-trabajo" style="color:#134B47;text-decoration:none">Cómo trabajo</a>
+        <a href="#resenas" style="color:#134B47;text-decoration:none">Reseñas</a>
+        <a href="#ubicaciones" style="color:#134B47;text-decoration:none">Ubicaciones</a>
+        <a href="#contacto" style="color:#134B47;text-decoration:none">Contacto</a>
+      </nav>
+    </sc-if>
+    <div style="display:flex;align-items:center;gap:8px">
+      <a href="{{ wa.general }}" target="_blank" aria-label="Agendar por WhatsApp" style="display:flex;align-items:center;gap:8px;height:48px;padding:0 16px;border-radius:14px;background:#15803F;color:#fff;text-decoration:none;font-weight:700;font-size:16px">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 20l1.3-4A8 8 0 1 1 8.5 19z" stroke-linejoin="round"></path><path d="M9 8.3c0 3.6 3 6.7 6.7 6.7l1-1.6-2-1-1 .8c-1-.4-2.3-1.7-2.7-2.7l.8-1-1-2z" fill="currentColor" stroke="none"></path></svg>
+        <span>{{ ctaHeader }}</span>
+      </a>
+      <sc-if value="{{ narrow }}" hint-placeholder-val="{{ true }}">
+        <button onClick="{{ toggleMenu }}" aria-label="Abrir menú" style="width:48px;height:48px;border-radius:14px;border:0;background:#F6D6DF;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#134B47">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 8h16M4 16h10"></path></svg>
+        </button>
+      </sc-if>
+    </div>
+  </div>
+  <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+    <nav style="display:flex;flex-direction:column;padding:14px 4px 10px;font-family:'Fraunces',serif;font-style:italic;font-size:30px">
+      <a href="#sobre-mi" onClick="{{ closeMenu }}" style="padding:8px 4px;color:#134B47;text-decoration:none">Sobre mí</a>
+      <a href="#servicios" onClick="{{ closeMenu }}" style="padding:8px 4px;color:#134B47;text-decoration:none">Servicios</a>
+      <a href="#como-trabajo" onClick="{{ closeMenu }}" style="padding:8px 4px;color:#134B47;text-decoration:none">Cómo trabajo</a>
+      <a href="#resenas" onClick="{{ closeMenu }}" style="padding:8px 4px;color:#134B47;text-decoration:none">Reseñas</a>
+      <a href="#ubicaciones" onClick="{{ closeMenu }}" style="padding:8px 4px;color:#134B47;text-decoration:none">Ubicaciones</a>
+      <a href="#contacto" onClick="{{ closeMenu }}" style="padding:8px 4px;color:#134B47;text-decoration:none">Contacto</a>
+    </nav>
+  </sc-if>
+</header>
+
+<!-- 9.2 HERO -->
+<section id="inicio" data-screen-label="Hero" style="padding:26px 22px 64px">
+  <div style="max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:44px">
+    <div style="flex:1 1 460px;max-width:620px">
+      <div style="display:flex;align-items:center;gap:10px;font-size:14px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:#134B47">
+        <svg width="12" height="16" viewBox="0 0 16 21" aria-hidden="true"><path d="M8 11 L3 19.5 M8 11 L13 19.5" stroke="#E0628F" stroke-width="2.6" stroke-linecap="round"></path><path d="M8 11 C3 6 4 1.2 8 1.2 C12 1.2 13 6 8 11Z" fill="none" stroke="#E0628F" stroke-width="2.6"></path></svg>
+        <span>Rehabilitación oncológica · Santa Ana y Palmichal</span>
+      </div>
+      <h1 style="font-family:'Fraunces',serif;font-style:italic;font-weight:350;font-variation-settings:'SOFT' 100;font-size:clamp(46px,7vw,84px);line-height:0.98;letter-spacing:-1.5px;color:#134B47;margin:18px 0 0;text-wrap:balance">Su recuperación <span style="color:#A9583C">también</span> es parte del tratamiento.</h1>
+      <p style="font-size:18px;line-height:1.6;margin:20px 0 0;max-width:500px;text-wrap:pretty">Fisioterapia especializada para personas antes, durante y después del tratamiento contra el cáncer. Atención cercana, a su ritmo y con un plan hecho para usted.</p>
+      <div style="margin-top:24px;display:flex;flex-wrap:wrap;align-items:center;gap:8px 20px">
+        <a href="{{ wa.general }}" target="_blank" style="display:flex;align-items:center;justify-content:center;gap:10px;height:58px;padding:0 26px;border-radius:16px;background:#15803F;color:#fff;text-decoration:none;font-weight:700;font-size:19px;flex:1 1 260px;max-width:340px">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 20l1.3-4A8 8 0 1 1 8.5 19z" stroke-linejoin="round"></path><path d="M9 8.3c0 3.6 3 6.7 6.7 6.7l1-1.6-2-1-1 .8c-1-.4-2.3-1.7-2.7-2.7l.8-1-1-2z" fill="currentColor" stroke="none"></path></svg>
+          Escribirme por WhatsApp
+        </a>
+        <a href="#resenas" style="font-size:17px;font-weight:700;color:#134B47;padding:10px 0;text-underline-offset:5px;text-decoration-color:#D9967A;text-decoration-thickness:2px">Ver reseñas de mis pacientes ↓</a>
+      </div>
+      <div style="margin-top:14px;display:flex;align-items:center;gap:8px;font-size:15px">
+        <span style="color:#C9A45C;font-size:18px;letter-spacing:2px">★★★★★</span>
+        <span><b>[calificación]</b> en Google · [cantidad] reseñas</span>
+      </div>
+    </div>
+    <div style="flex:1 1 320px;max-width:500px;position:relative;margin:0 -22px 0 auto;padding:0 0 40px 34px">
+      <div style="position:absolute;left:0;top:34px;right:40px;bottom:0;background:#F6D6DF;border-radius:28px"></div>
+      <svg viewBox="0 0 120 160" style="position:absolute;left:4px;top:-10px;width:92px" fill="none" stroke="#1F6F68" stroke-width="1.3" stroke-linecap="round" aria-hidden="true"><path d="M60 158C58 110 50 70 30 20"></path><path d="M52 110c-18-4-30-16-34-32 16 2 28 14 34 32zM44 76c14-8 22-22 20-38-14 8-22 22-20 38zM36 46c-14-4-22-14-24-26 12 2 20 12 24 26z"></path></svg>
+      <div style="position:relative;aspect-ratio:4/5;border-radius:28px 0 0 28px;overflow:hidden">
+        <img src="assets/fotos/02-retrato-menton.jpeg" alt="Retrato de la Licda. María Monge con la mano en el mentón, sonriendo" style="width:100%;height:100%;object-fit:cover;object-position:50% 22%;filter:saturate(.9) sepia(.07) contrast(1.02);display:block">
+      </div>
+      <div style="position:absolute;left:4px;bottom:0;width:128px;aspect-ratio:1;border-radius:999px;overflow:hidden;border:6px solid #FBF7F0">
+        <img src="assets/fotos/13-detalle-muneca-cerca.jpeg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:60% 75%;filter:saturate(.85) sepia(.08);display:block">
+      </div>
+      <p style="position:absolute;right:30px;bottom:6px;margin:0;font-family:'Fraunces',serif;font-style:italic;font-size:15px;color:#134B47">Licda. María Monge</p>
+    </div>
+  </div>
+</section>
+
+<!-- 9.3 PILARES -->
+<section style="padding:0 22px 64px">
+  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));border-top:1px solid #134B47">
+    <sc-for list="{{ pilares }}" as="p" hint-placeholder-count="3">
+      <div style="padding:22px 4px 22px 0;display:flex;gap:16px;border-bottom:1px solid rgba(19,75,71,0.18)">
+        <svg width="16" height="16" viewBox="0 0 20 20" style="flex:none;margin-top:6px" aria-hidden="true"><path d="M10 0C11 7 13 9 20 10C13 11 11 13 10 20C9 13 7 11 0 10C7 9 9 7 10 0Z" fill="#D9967A"></path></svg>
+        <div>
+          <h3 style="margin:0;font-family:'Fraunces',serif;font-weight:500;font-size:26px;color:#134B47">{{ p.t }}</h3>
+          <p style="margin:6px 0 0;font-size:18px;line-height:1.55">{{ p.d }}</p>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+</section>
+
+<!-- 9.4 PARA QUIÉN -->
+<section style="padding:64px 22px;background:#CFE5DF">
+  <div style="max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;gap:40px;align-items:flex-start">
+    <div style="flex:1 1 380px;max-width:520px">
+      <div style="display:flex;align-items:flex-end;gap:14px">
+        <span style="font-size:14px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:#134B47;padding-bottom:6px">Para quién es</span>
+      </div>
+      <h2 style="font-family:'Fraunces',serif;font-style:italic;font-weight:400;font-size:clamp(36px,5vw,56px);line-height:1.02;letter-spacing:-0.8px;color:#134B47;margin:16px 0 0;text-wrap:balance">¿Esta atención es para usted?</h2>
+      <div style="margin:26px -22px 0 0;aspect-ratio:5/4;border-radius:28px 0 0 28px;overflow:hidden">
+        <img src="assets/fotos/08-sesion-brazos-arriba.jpeg" alt="María y una paciente levantan los brazos juntas durante una sesión" style="width:100%;height:100%;object-fit:cover;object-position:60% 8%;filter:saturate(.88) sepia(.08);display:block">
+      </div>
+    </div>
+    <div style="flex:1 1 380px;max-width:600px;display:flex;flex-direction:column">
+      <sc-for list="{{ paraQuien }}" as="p" hint-placeholder-count="6">
+        <div style="display:flex;gap:16px;padding:18px 0;border-bottom:1px solid rgba(19,75,71,0.25)">
+          <svg width="16" height="16" viewBox="0 0 20 20" style="flex:none;margin-top:6px" aria-hidden="true"><path d="M10 0C11 7 13 9 20 10C13 11 11 13 10 20C9 13 7 11 0 10C7 9 9 7 10 0Z" fill="#1F6F68"></path></svg>
+          <span style="font-size:18px;line-height:1.5;color:#1E2B29">{{ p.t }}</span>
+        </div>
+      </sc-for>
+      <p style="margin:18px 0 0;font-size:15px;color:#134B47">[Todo tratamiento se coordina con su equipo médico.]</p>
+    </div>
+  </div>
+</section>
+
+<!-- 9.5 SERVICIOS -->
+<section id="servicios" style="padding:72px 22px">
+  <div style="max-width:1200px;margin:0 auto">
+    <div style="display:flex;align-items:flex-end;gap:14px">
+      <span style="font-size:14px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:#134B47;padding-bottom:6px">Servicios</span>
+    </div>
+    <h2 style="font-family:'Fraunces',serif;font-style:italic;font-weight:400;font-size:clamp(36px,5vw,56px);line-height:1.02;letter-spacing:-0.8px;color:#134B47;margin:16px 0 0;max-width:640px">Dos formas de acompañarle</h2>
+    <div style="margin-top:36px;display:flex;flex-wrap:wrap;gap:48px 40px">
+      <article style="flex:1 1 420px;max-width:680px">
+        <div style="position:relative;padding:0 0 30px 0">
+          <div style="aspect-ratio:4/3;border-radius:28px;overflow:hidden;margin-left:-22px;border-top-left-radius:0;border-bottom-left-radius:0">
+            <img src="assets/fotos/07-perfil-muneca-fondo-blanco.jpeg" alt="María moviliza con cuidado la muñeca de una paciente" style="width:100%;height:100%;object-fit:cover;object-position:40% 30%;filter:saturate(.9) sepia(.06);display:block">
+          </div>
+          <div style="position:absolute;right:-6px;bottom:0;width:40%;aspect-ratio:3/4;border-radius:22px;overflow:hidden;border:6px solid #FBF7F0;transform:rotate(3deg)">
+            <img src="assets/fotos/12-movilizacion-sonrie-puerta.jpeg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:40% 25%;filter:saturate(.85) sepia(.08) brightness(1.05);display:block">
+          </div>
+          <span style="position:absolute;left:0;top:16px;display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:0 999px 999px 0;background:#F6D6DF;color:#8E2E55;font-size:14px;font-weight:700">
+            <svg width="11" height="15" viewBox="0 0 16 21" aria-hidden="true"><path d="M8 11 L3 19.5 M8 11 L13 19.5" stroke="#E0628F" stroke-width="2.6" stroke-linecap="round"></path><path d="M8 11 C3 6 4 1.2 8 1.2 C12 1.2 13 6 8 11Z" fill="none" stroke="#E0628F" stroke-width="2.6"></path></svg>Especialidad
+          </span>
+        </div>
+        <h3 style="font-family:'Fraunces',serif;font-weight:500;font-size:34px;line-height:1.05;color:#134B47;margin:18px 0 0">Rehabilitación oncológica</h3>
+        <p style="margin:10px 0 0;font-family:'Fraunces',serif;font-style:italic;font-size:21px;line-height:1.45;color:#1F6F68">Un programa de fisioterapia pensado para cada etapa del cáncer.</p>
+        <div style="margin-top:18px;display:flex;flex-direction:column">
+          <sc-for list="{{ onco }}" as="it" hint-placeholder-count="7">
+            <div style="display:flex;gap:12px;align-items:baseline;padding:10px 0;border-bottom:1px dashed rgba(19,75,71,0.25);font-size:17px;line-height:1.45">
+              <span style="width:7px;height:7px;border-radius:999px;background:#C9A45C;flex:none;transform:translateY(-2px)"></span>
+              <span>{{ it.t }} <span style="font-size:13px;font-weight:700;color:#A9583C">{{ it.v }}</span></span>
+            </div>
+          </sc-for>
+        </div>
+        <a href="{{ wa.onco }}" target="_blank" style="margin-top:22px;display:inline-flex;align-items:center;gap:10px;height:54px;padding:0 24px;border-radius:16px;background:#134B47;color:#FBF7F0;text-decoration:none;font-weight:700;font-size:17px">Consultar por WhatsApp →</a>
+      </article>
+      <article style="flex:1 1 300px;max-width:420px;align-self:flex-end;background:#F6D6DF;border-radius:28px;padding:22px 22px 28px">
+        <div style="aspect-ratio:1;border-radius:999px 999px 20px 20px;overflow:hidden">
+          <img src="assets/fotos/03-pesa-sonrisa.jpeg" alt="María sonríe sosteniendo una mancuerna" style="width:100%;height:100%;object-fit:cover;object-position:50% 20%;filter:saturate(.9) sepia(.06);display:block">
+        </div>
+        <h3 style="font-family:'Fraunces',serif;font-weight:500;font-size:32px;line-height:1.05;color:#134B47;margin:20px 0 0">Terapia física</h3>
+        <p style="margin:10px 0 0;font-size:18px;line-height:1.55">Para dolor de espalda, cuello, lesiones, recuperación después de una cirugía y mejora del movimiento en general.</p>
+        <div style="margin-top:14px;display:flex;flex-wrap:wrap;gap:8px">
+          <sc-for list="{{ tf }}" as="it" hint-placeholder-count="4">
+            <span style="padding:8px 13px;border-radius:999px;background:#FBF7F0;color:#134B47;font-size:15px;font-weight:500">{{ it }}</span>
+          </sc-for>
+        </div>
+        <a href="{{ wa.tf }}" target="_blank" style="margin-top:20px;display:flex;align-items:center;justify-content:center;height:52px;border-radius:16px;border:1.5px solid #134B47;color:#134B47;text-decoration:none;font-weight:700;font-size:17px">Consultar por WhatsApp →</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 9.6 SOBRE MÍ -->
+<section id="sobre-mi" style="padding:72px 22px;background:#F6D6DF">
+  <div style="max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;gap:40px;align-items:center">
+    <div style="flex:1 1 340px;max-width:520px;position:relative;padding:0 18% 60px 0">
+      <div style="aspect-ratio:3/4;border-radius:26px;overflow:hidden">
+        <img src="assets/fotos/04-apoyada-pared.jpeg" alt="María apoyada en la pared, serena" style="width:100%;height:100%;object-fit:cover;object-position:50% 12%;filter:saturate(.88) sepia(.07);display:block">
+      </div>
+      <div style="position:absolute;right:0;bottom:0;width:52%;aspect-ratio:1;border-radius:22px;overflow:hidden;border:6px solid #F6D6DF;transform:rotate(-3deg)">
+        <img src="assets/fotos/15-movilizacion-hombro.jpeg" alt="Las manos de María acompañan el brazo de una paciente" style="width:100%;height:100%;object-fit:cover;object-position:50% 18%;filter:saturate(.85) sepia(.08);display:block">
+      </div>
+    </div>
+    <div style="flex:1 1 380px;max-width:560px">
+      <div style="display:flex;align-items:flex-end;gap:14px">
+        <span style="font-size:14px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:#134B47;padding-bottom:6px">Sobre mí</span>
+      </div>
+      <h2 style="font-family:'Fraunces',serif;font-style:italic;font-weight:400;font-size:clamp(44px,6vw,68px);line-height:1;letter-spacing:-1px;color:#134B47;margin:16px 0 0">Hola, soy María.</h2>
+      <p style="margin:18px 0 0;font-size:18px;line-height:1.6;padding:16px 0;border-top:1px solid rgba(19,75,71,0.3);border-bottom:1px solid rgba(19,75,71,0.3);color:#134B47">[Presentación de María: formación, por qué eligió la rehabilitación oncológica y cómo trabaja]</p>
+      <div style="margin-top:18px;display:flex;flex-wrap:wrap;gap:8px">
+        <span style="padding:9px 14px;border-radius:12px;background:#FBF7F0;color:#134B47;font-size:15px;font-weight:500">[Licenciatura — universidad]</span>
+        <span style="padding:9px 14px;border-radius:12px;background:#FBF7F0;color:#134B47;font-size:15px;font-weight:500">[Código de colegiada]</span>
+        <span style="padding:9px 14px;border-radius:12px;background:#FBF7F0;color:#134B47;font-size:15px;font-weight:500">[Formación en fisioterapia oncológica]</span>
+        <span style="padding:9px 14px;border-radius:12px;background:#FBF7F0;color:#134B47;font-size:15px;font-weight:500">[Otra certificación]</span>
+      </div>
+      <div style="margin-top:22px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
+        <div style="display:flex;align-items:baseline;gap:10px;color:#134B47">
+          <span style="font-family:'Fraunces',serif;font-size:60px;font-weight:300;line-height:1">[X]</span>
+          <span style="font-size:17px;font-weight:700">años de experiencia</span>
+        </div>
+        <span style="font-family:'Allura',cursive;font-size:64px;color:#134B47;line-height:1">María</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 9.7 MISIÓN / VISIÓN / VALORES -->
+<section style="padding:72px 22px">
+  <div style="max-width:1200px;margin:0 auto">
+    <div style="display:flex;align-items:flex-end;gap:14px">
+      <span style="font-size:14px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:#134B47;padding-bottom:6px">Lo que nos mueve</span>
+    </div>
+    <blockquote style="margin:26px 0 0;position:relative;padding-left:0">
+      <span aria-hidden="true" style="position:absolute;left:-6px;top:-40px;font-family:'Fraunces',serif;font-size:140px;line-height:1;color:#D9967A;opacity:.6">“</span>
+      <p style="position:relative;margin:0;font-family:'Fraunces',serif;font-style:italic;font-weight:350;font-size:clamp(26px,3.4vw,40px);line-height:1.25;color:#134B47;max-width:900px;text-wrap:pretty">Acompañar a las personas con cáncer y a sus familias con una fisioterapia humana, segura y basada en evidencia, que les ayude a recuperar movimiento, autonomía y calidad de vida en cada etapa del tratamiento.</p>
+      <footer style="margin-top:12px;font-size:14px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:#A9583C">Misión</footer>
+    </blockquote>
+    <div style="margin-top:44px;display:flex;flex-wrap:wrap;gap:32px;align-items:stretch">
+      <div style="flex:1 1 300px;max-width:440px;aspect-ratio:4/5;border-radius:28px;overflow:hidden;background:#7FB5AC;position:relative">
+        <img src="assets/fotos/11-movilizacion-brazo-fondo-madera.jpeg" alt="María moviliza el hombro de una paciente con concentración" style="width:100%;height:100%;object-fit:cover;object-position:60% 30%;filter:grayscale(1) contrast(1.05) brightness(1.12);mix-blend-mode:multiply;display:block">
+      </div>
+      <div style="flex:1 1 360px;max-width:640px;display:flex;flex-direction:column;gap:24px;justify-content:center">
+        <div style="background:#CFE5DF;border-radius:24px;padding:22px 22px">
+          <div style="font-size:14px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:#134B47">Visión</div>
+          <p style="margin:8px 0 0;font-size:18px;line-height:1.6;color:#1E2B29">Ser el centro de referencia en rehabilitación oncológica de la zona oeste de San José y de Acosta, reconocido por la calidez de su trato y los resultados de sus pacientes.</p>
+        </div>
+        <div>
+          <div style="font-size:14px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:#134B47;margin-bottom:6px">Valores</div>
+          <sc-for list="{{ valores }}" as="v" hint-placeholder-count="5">
+            <div style="display:flex;align-items:baseline;gap:14px;padding:12px 0;border-bottom:1px solid rgba(19,75,71,0.18);flex-wrap:wrap">
+              <span style="font-family:'Fraunces',serif;font-style:italic;font-size:26px;color:#134B47;min-width:140px">{{ v.n }}</span>
+              <span style="font-size:17px;line-height:1.45;flex:1 1 180px">{{ v.d }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 9.8 CÓMO TRABAJO -->
+<section id="como-trabajo" style="padding:72px 22px;background:#CFE5DF">
+  <div style="max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;gap:40px;align-items:flex-start">
+    <div style="flex:1 1 300px;max-width:420px">
+      <div style="display:flex;align-items:flex-end;gap:14px">
+        <span style="font-size:14px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:#134B47;padding-bottom:6px">Cómo trabajo</span>
+      </div>
+      <h2 style="font-family:'Fraunces',serif;font-style:italic;font-weight:400;font-size:clamp(36px,5vw,56px);line-height:1.02;letter-spacing:-0.8px;color:#134B47;margin:16px 0 0">Un camino en cuatro pasos</h2>
+      <div style="margin-top:26px;aspect-ratio:4/5;border-radius:200px 200px 28px 28px;overflow:hidden;max-width:340px">
+        <img src="assets/fotos/06-balon-teal.jpeg" alt="María sentada en un balón de ejercicio color teal" style="width:100%;height:100%;object-fit:cover;object-position:40% 30%;filter:saturate(.88) sepia(.06);display:block">
+      </div>
+    </div>
+    <div style="flex:1 1 400px;max-width:680px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px">
+      <sc-for list="{{ pasos }}" as="s" hint-placeholder-count="4">
+        <div style="background:#FBF7F0;border-radius:24px;padding:22px 22px 24px;display:flex;flex-direction:column;gap:8px">
+          <svg width="30" height="30" viewBox="0 0 120 160" fill="none" stroke="#A9583C" stroke-width="5" stroke-linecap="round" aria-hidden="true"><path d="M60 158C58 110 50 70 30 20"></path><path d="M52 110c-18-4-30-16-34-32 16 2 28 14 34 32zM44 76c14-8 22-22 20-38-14 8-22 22-20 38z"></path></svg>
+          <h3 style="font-family:'Fraunces',serif;font-weight:500;font-size:25px;line-height:1.15;color:#134B47;margin:4px 0 0">{{ s.t }}</h3>
+          <p style="margin:0;font-size:17px;line-height:1.55">{{ s.d }}</p>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<!-- 9.9 TESTIMONIOS -->
+<section id="resenas" data-screen-label="Testimonios" style="padding:72px 0 64px;background:#F6D6DF;position:relative;overflow:hidden">
+  <div style="max-width:1200px;margin:0 auto;padding:0 22px;display:flex;flex-wrap:wrap;gap:24px;align-items:flex-end;justify-content:space-between">
+    <div>
+      <div style="display:flex;align-items:flex-end;gap:14px">
+        <span style="font-size:14px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:#134B47;padding-bottom:6px">Reseñas</span>
+      </div>
+      <h2 style="font-family:'Fraunces',serif;font-style:italic;font-weight:400;font-size:clamp(38px,5.4vw,60px);line-height:1;letter-spacing:-0.8px;color:#134B47;margin:16px 0 0">Lo que dicen mis pacientes</h2>
+    </div>
+    <div style="display:flex;align-items:center;gap:16px;padding:14px 20px;background:#FBF7F0;border-radius:20px">
+      <span style="font-family:'Fraunces',serif;font-size:48px;font-weight:400;line-height:1;color:#134B47">[calificación]</span>
+      <div>
+        <div style="color:#C9A45C;font-size:20px;letter-spacing:3px">★★★★★</div>
+        <div style="font-size:15px;margin-top:2px">Basado en [cantidad] reseñas de <b>Google</b></div>
+      </div>
+    </div>
+  </div>
+  <div style="margin-top:34px;display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:18px 22px 26px;max-width:1244px;margin-left:auto;margin-right:auto;scrollbar-width:none">
+    <sc-for list="{{ testimonios }}" as="t" hint-placeholder-count="6">
+      <article style="flex:0 0 min(82%,330px);scroll-snap-align:center;position:relative;background:{{ t.card }};border-radius:6px;padding:34px 22px 22px;display:flex;flex-direction:column;gap:14px;box-shadow:0 18px 30px -22px rgba(19,75,71,0.6);transform:rotate({{ t.rot }})">
+        <span aria-hidden="true" style="position:absolute;left:50%;top:-10px;width:86px;height:24px;transform:translateX(-50%) rotate(-3deg);background:rgba(217,150,122,0.45)"></span>
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <span style="color:#C9A45C;font-size:19px;letter-spacing:3px">★★★★★</span>
+          <span style="padding:4px 10px;border-radius:999px;border:1px solid {{ t.fg }};color:{{ t.fg }};font-size:12px;font-weight:700">{{ t.tag }}</span>
+        </div>
+        <p style="margin:0;font-family:'Fraunces',serif;font-style:italic;font-size:22px;line-height:1.4;color:#134B47;flex:1">[Testimonio del paciente — 2 a 4 líneas]</p>
+        <div style="border-top:1px dashed rgba(19,75,71,0.3);padding-top:12px;display:flex;align-items:center;gap:12px">
+          <span style="width:42px;height:42px;border-radius:999px;background:#CFE5DF;color:#134B47;display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-style:italic;font-size:18px">[A]</span>
+          <div style="font-size:15px;line-height:1.35">
+            <div style="font-weight:700">[Nombre + inicial del apellido]</div>
+            <div style="color:#4A514F">[Comunidad]</div>
+          </div>
+        </div>
+      </article>
+    </sc-for>
+  </div>
+  <div style="max-width:1200px;margin:0 auto;padding:0 22px">
+    <a href="#" style="font-weight:700;font-size:17px;color:#134B47;text-underline-offset:5px;text-decoration-color:#D9967A;text-decoration-thickness:2px;padding:10px 0;display:inline-block">Ver todas las reseñas en Google → [link]</a>
+  </div>
+</section>
+
+<!-- 9.10 RESEÑA QR — tarjeta de agradecimiento -->
+<section data-screen-label="Reseña QR" style="padding:80px 18px 80px;background:#FBF7F0;position:relative">
+  <div style="max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;gap:40px;align-items:center;justify-content:center">
+    <div style="flex:1 1 300px;max-width:440px;position:relative;height:420px">
+      <div style="position:absolute;left:4%;top:0;width:62%;background:#fff;padding:10px 10px 38px;border-radius:6px;transform:rotate(-5deg);box-shadow:0 20px 34px -22px rgba(19,75,71,0.6)">
+        <div style="aspect-ratio:3/4;overflow:hidden;border-radius:3px"><img src="assets/fotos/10-celebra-brazos-arriba.jpeg" alt="María celebra con los brazos en alto" style="width:100%;height:100%;object-fit:cover;object-position:50% 30%;filter:saturate(.9) sepia(.06);display:block"></div>
+        <p style="margin:10px 0 0;text-align:center;font-family:'Allura',cursive;font-size:28px;color:#134B47;line-height:1">cada avance cuenta</p>
+      </div>
+      <div style="position:absolute;right:2%;bottom:0;width:52%;background:#fff;padding:10px 10px 12px;border-radius:6px;transform:rotate(4deg);box-shadow:0 20px 34px -22px rgba(19,75,71,0.6)">
+        <div style="aspect-ratio:1;overflow:hidden;border-radius:3px"><img src="assets/fotos/16-bola-amarilla-manos.jpeg" alt="Manos sosteniendo una bola amarilla de ejercicio" style="width:100%;height:100%;object-fit:cover;object-position:50% 50%;filter:saturate(.9) sepia(.06);display:block"></div>
+      </div>
+    </div>
+    <div style="flex:1 1 420px;max-width:560px;position:relative;background:#FFFDF8;border-radius:10px;padding:40px 24px 30px;box-shadow:0 30px 60px -40px rgba(19,75,71,0.6);border:1px solid rgba(217,150,122,0.5)">
+      <div aria-hidden="true" style="position:absolute;inset:10px;border:1px dashed rgba(217,150,122,0.7);border-radius:6px;pointer-events:none"></div>
+      <div style="position:relative;display:flex;flex-direction:column;align-items:center;text-align:center">
+        <div style="display:flex;align-items:center;gap:14px">
+          <img src="assets/fotos/00-logo-actual.jpeg" alt="Sello FisioMaryFer" style="width:78px;height:78px;border-radius:999px;object-fit:cover">
+          <span style="font-family:'Allura',cursive;font-size:64px;line-height:1;color:#A9583C">¡Gracias!</span>
+        </div>
+        <h2 style="font-family:'Fraunces',serif;font-style:italic;font-weight:400;font-size:clamp(28px,3.6vw,38px);line-height:1.12;color:#134B47;margin:18px 0 0;text-wrap:balance">¿Ya es mi paciente? Su experiencia puede ayudar a alguien más.</h2>
+        <p style="margin:12px 0 0;font-size:18px;line-height:1.6;max-width:440px">Dejar una reseña toma solo un minuto y le ayuda a otra persona a encontrar el acompañamiento que necesita. ¡Gracias por ser parte de este camino!</p>
+        <div style="margin-top:24px;display:flex;flex-wrap:wrap;gap:22px;align-items:center;justify-content:center">
+          <div style="position:relative;width:236px;height:236px;padding:14px;background:#fff;border-radius:18px;box-shadow:inset 0 0 0 1px rgba(19,75,71,0.12)">
+            <span style="position:absolute;left:-2px;top:-2px;width:34px;height:34px;border-left:2px solid #C9A45C;border-top:2px solid #C9A45C;border-top-left-radius:16px"></span>
+            <span style="position:absolute;right:-2px;top:-2px;width:34px;height:34px;border-right:2px solid #C9A45C;border-top:2px solid #C9A45C;border-top-right-radius:16px"></span>
+            <span style="position:absolute;left:-2px;bottom:-2px;width:34px;height:34px;border-left:2px solid #C9A45C;border-bottom:2px solid #C9A45C;border-bottom-left-radius:16px"></span>
+            <span style="position:absolute;right:-2px;bottom:-2px;width:34px;height:34px;border-right:2px solid #C9A45C;border-bottom:2px solid #C9A45C;border-bottom-right-radius:16px"></span>
+            <div style="width:100%;height:100%;border-radius:10px;background:repeating-linear-gradient(45deg,#F6EFE6 0 8px,#FFFDF8 8px 16px);display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;color:#134B47;padding:16px">[QR de reseña en Google]</div>
+          </div>
+          <ol style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:12px;text-align:left">
+            <li style="display:flex;gap:12px;align-items:center;font-size:17px;font-weight:500;color:#134B47"><svg width="20" height="20" viewBox="0 0 18 18" aria-hidden="true"><path d="M3.5 9.5l3.5 3.5 7.5-8" fill="none" stroke="#A9583C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg>Abra la cámara del celular</li>
+            <li style="display:flex;gap:12px;align-items:center;font-size:17px;font-weight:500;color:#134B47"><svg width="20" height="20" viewBox="0 0 18 18" aria-hidden="true"><path d="M3.5 9.5l3.5 3.5 7.5-8" fill="none" stroke="#A9583C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg>Escanee el código</li>
+            <li style="display:flex;gap:12px;align-items:center;font-size:17px;font-weight:500;color:#134B47"><svg width="20" height="20" viewBox="0 0 18 18" aria-hidden="true"><path d="M3.5 9.5l3.5 3.5 7.5-8" fill="none" stroke="#A9583C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg>Cuéntenos su experiencia</li>
+          </ol>
+        </div>
+        <a href="#" style="margin-top:26px;width:100%;max-width:380px;display:flex;align-items:center;justify-content:center;gap:10px;height:56px;border-radius:16px;background:#134B47;color:#FBF7F0;text-decoration:none;font-weight:700;font-size:18px"><span style="color:#E8CE95">★</span> Dejar mi reseña en Google</a>
+        <div style="margin-top:8px;font-size:14px;color:#4A514F">[link de reseña]</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 9.11 CONTACTO — conversación -->
+<section id="contacto" data-screen-label="Contacto" style="padding:72px 18px;background:#CFE5DF">
+  <div style="max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;gap:40px;align-items:center">
+    <div style="flex:1 1 360px;max-width:520px">
+      <div style="display:flex;align-items:flex-end;gap:14px">
+        <span style="font-size:14px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:#134B47;padding-bottom:6px">Contacto</span>
+      </div>
+      <h2 style="font-family:'Fraunces',serif;font-style:italic;font-weight:400;font-size:clamp(60px,9vw,108px);line-height:.92;letter-spacing:-2px;color:#134B47;margin:12px 0 0">Hablemos</h2>
+      <p style="margin:16px 0 0;font-size:18px;line-height:1.6;max-width:440px">Escríbame por WhatsApp y con gusto le oriento. Puede escribir usted o un familiar.</p>
+      <a href="{{ wa.general }}" target="_blank" style="margin-top:24px;display:flex;align-items:center;gap:16px;padding:14px 20px;border-radius:20px;background:#15803F;color:#fff;text-decoration:none;max-width:420px">
+        <span style="width:52px;height:52px;border-radius:14px;background:rgba(255,255,255,0.16);display:flex;align-items:center;justify-content:center;flex:none"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20l1.3-4A8 8 0 1 1 8.5 19z" stroke-linejoin="round"></path><path d="M9 8.3c0 3.6 3 6.7 6.7 6.7l1-1.6-2-1-1 .8c-1-.4-2.3-1.7-2.7-2.7l.8-1-1-2z" fill="currentColor" stroke="none"></path></svg></span>
+        <span style="display:flex;flex-direction:column"><span style="font-weight:700;font-size:20px">Escribir por WhatsApp</span><span style="font-size:17px">+506 7139 6482</span></span>
+      </a>
+      <div style="margin-top:18px;display:flex;flex-wrap:wrap;gap:10px 18px;font-size:15px;color:#134B47;align-items:center">
+        <span>[Horario de atención por WhatsApp]</span>
+        <a href="#" style="font-weight:700;padding:8px 0">[Instagram]</a>
+        <a href="#" style="font-weight:700;padding:8px 0">[Facebook]</a>
+      </div>
+    </div>
+    <div style="flex:1 1 340px;max-width:520px;background:#FBF7F0;border-radius:28px;padding:20px 16px 18px;box-shadow:0 30px 50px -36px rgba(19,75,71,0.6)">
+      <div style="display:flex;align-items:center;gap:12px;padding:0 4px 14px;border-bottom:1px solid rgba(19,75,71,0.12)">
+        <img src="assets/fotos/02-retrato-menton.jpeg" alt="" style="width:44px;height:44px;border-radius:999px;object-fit:cover;object-position:50% 20%">
+        <div style="line-height:1.3"><div style="font-weight:700;font-size:16px;color:#134B47">María · {{ marca }}</div><div style="font-size:14px;color:#4A514F">Toque un mensaje para enviarlo</div></div>
+      </div>
+      <div style="margin:14px 4px 0;align-self:flex-start;max-width:85%;background:#fff;border-radius:4px 18px 18px 18px;padding:12px 14px;font-size:16px;line-height:1.45;color:#2B2F2E">Hola, ¿en qué le puedo ayudar? Puede escribir usted o un familiar.</div>
+      <div style="margin-top:14px;display:flex;flex-direction:column;align-items:flex-end;gap:8px">
+        <sc-for list="{{ rapidos }}" as="r" hint-placeholder-count="4">
+          <a href="{{ r.href }}" target="_blank" style="max-width:88%;min-height:48px;display:flex;align-items:center;gap:10px;background:#DCF3E3;border-radius:18px 4px 18px 18px;padding:11px 14px;color:#134B47;text-decoration:none;font-size:16px;font-weight:500;line-height:1.4;text-align:left">
+            <span>{{ r.t }}</span><svg width="18" height="18" viewBox="0 0 24 24" fill="#15803F" style="flex:none" aria-hidden="true"><path d="M3 20l18-8L3 4v6l12 2-12 2z"></path></svg>
+          </a>
+        </sc-for>
+      </div>
+      <div style="margin-top:16px;display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:16px;border:1px dashed rgba(19,75,71,0.35)">
+        <div style="width:64px;height:64px;border-radius:8px;background:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#134B47;text-align:center;flex:none">[QR WhatsApp]</div>
+        <span style="font-size:14px;color:#4A514F">Versión impresa: escanee para escribir directo.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 9.12 UBICACIONES -->
+<section id="ubicaciones" style="padding:72px 18px">
+  <div style="max-width:1200px;margin:0 auto">
+    <div style="display:flex;align-items:flex-end;gap:14px">
+      <span style="font-size:14px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:#134B47;padding-bottom:6px">Ubicaciones</span>
+    </div>
+    <h2 style="font-family:'Fraunces',serif;font-style:italic;font-weight:400;font-size:clamp(36px,5vw,56px);line-height:1.02;letter-spacing:-0.8px;color:#134B47;margin:16px 0 0">Dos espacios para atenderle</h2>
+    <div style="margin-top:30px;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:0;border-top:1px solid #134B47">
+      <sc-for list="{{ sedes }}" as="s" hint-placeholder-count="2">
+        <div style="padding:24px 4px 26px;border-bottom:1px solid rgba(19,75,71,0.25)">
+                    <h3 style="font-family:'Fraunces',serif;font-weight:500;font-size:34px;color:#134B47;margin:2px 0 0">{{ s.n }}</h3>
+          <div style="margin-top:12px;display:flex;flex-direction:column;gap:4px;font-size:17px;line-height:1.5"><span>{{ s.dir }}</span><span>[Días de atención]</span><span>[Horario]</span></div>
+          <div style="margin-top:16px;display:flex;gap:10px">
+            <a href="#" style="height:48px;padding:0 22px;border-radius:14px;background:#F6D6DF;color:#134B47;display:flex;align-items:center;text-decoration:none;font-weight:700;font-size:16px">Waze</a>
+            <a href="#" style="height:48px;padding:0 22px;border-radius:14px;background:#F6D6DF;color:#134B47;display:flex;align-items:center;text-decoration:none;font-weight:700;font-size:16px">Google Maps</a>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+    <div style="margin-top:22px;border-radius:28px;background:#F6D6DF;padding:14px">
+      <svg viewBox="0 0 360 230" style="width:100%;display:block" aria-label="Mapa estilizado de la zona oeste de San José">
+        <path d="M20 200C60 150 40 110 90 90S150 40 210 50S300 30 350 60" fill="none" stroke="#FBF7F0" stroke-width="28" stroke-linecap="round"></path>
+        <path d="M70 118Q140 96 180 96T256 74M180 96Q190 140 188 168" fill="none" stroke="#134B47" stroke-width="1.4" stroke-dasharray="3 5"></path>
+        <g font-family="DM Sans, sans-serif" font-size="12.5" font-weight="700" fill="#134B47">
+          <circle cx="70" cy="118" r="4" fill="#A9583C"></circle><text x="36" y="140">Puriscal</text>
+          <circle cx="160" cy="98" r="4" fill="#A9583C"></circle><text x="118" y="88">Ciudad Colón</text>
+          <circle cx="196" cy="122" r="4" fill="#A9583C"></circle><text x="206" y="126">Mora</text>
+          <circle cx="306" cy="66" r="4" fill="#A9583C"></circle><text x="288" y="92">Escazú</text>
+          <circle cx="232" cy="200" r="4" fill="#A9583C"></circle><text x="244" y="204">Acosta</text>
+        </g>
+        <g><circle cx="256" cy="66" r="11" fill="#134B47"></circle><circle cx="256" cy="66" r="4" fill="#FBF7F0"></circle><text x="222" y="42" font-family="Fraunces, serif" font-style="italic" font-size="20" fill="#134B47">Santa Ana</text></g>
+        <g><circle cx="188" cy="166" r="11" fill="#134B47"></circle><circle cx="188" cy="166" r="4" fill="#FBF7F0"></circle><text x="100" y="196" font-family="Fraunces, serif" font-style="italic" font-size="20" fill="#134B47">Palmichal</text></g>
+      </svg>
+    </div>
+    <p style="margin:18px 0 0;font-size:18px;line-height:1.6">Atiendo a pacientes de Ciudad Colón, Puriscal, Acosta y alrededores.</p>
+  </div>
+</section>
+
+<!-- 9.13 FAQ -->
+<section style="padding:72px 18px;background:#F6D6DF">
+  <div style="max-width:880px;margin:0 auto">
+    <div style="display:flex;align-items:flex-end;gap:14px">
+      <span style="font-size:14px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:#134B47;padding-bottom:6px">Preguntas</span>
+    </div>
+    <h2 style="font-family:'Fraunces',serif;font-style:italic;font-weight:400;font-size:clamp(36px,5vw,56px);line-height:1.02;color:#134B47;margin:16px 0 22px">Preguntas frecuentes</h2>
+    <div style="border-top:1px solid #134B47">
+      <sc-for list="{{ faqs }}" as="f" hint-placeholder-count="6">
+        <div style="border-bottom:1px solid rgba(19,75,71,0.3)">
+          <button onClick="{{ f.toggle }}" aria-expanded="{{ f.open }}" style="width:100%;min-height:66px;padding:16px 0;background:none;border:0;display:flex;align-items:center;gap:14px;text-align:left;cursor:pointer;color:#134B47">
+                        <span style="flex:1;font-family:'Fraunces',serif;font-size:21px;line-height:1.3">{{ f.q }}</span>
+            <span style="flex:none;font-size:26px;line-height:1;width:28px;text-align:center">{{ f.icon }}</span>
+          </button>
+          <sc-if value="{{ f.open }}" hint-placeholder-val="{{ false }}">
+            <p style="margin:0;padding:0 0 20px 0;font-size:18px;line-height:1.6;color:#3A403F">[Respuesta]</p>
+          </sc-if>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<!-- 9.14 CTA FINAL -->
+<section style="background:#134B47;color:#FBF7F0">
+  <div style="max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap-reverse;align-items:stretch">
+    <div style="flex:1 1 380px;padding:64px 22px;display:flex;flex-direction:column;justify-content:center">
+      <h2 style="font-family:'Fraunces',serif;font-style:italic;font-weight:350;font-size:clamp(40px,5.6vw,68px);line-height:1;letter-spacing:-1px;margin:0;text-wrap:balance">Dar el primer paso también es parte de sanar.</h2>
+      <p style="margin:18px 0 0;font-size:18px;line-height:1.6;color:#E9F1EE;max-width:460px">Escríbame y conversemos sin compromiso sobre cómo puedo ayudarle.</p>
+      <a href="{{ wa.general }}" target="_blank" style="margin-top:26px;display:flex;align-items:center;justify-content:center;gap:10px;height:60px;padding:0 28px;border-radius:16px;background:#F6D6DF;color:#134B47;text-decoration:none;font-weight:700;font-size:19px;max-width:360px">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#15803F" stroke-width="1.8"><path d="M4 20l1.3-4A8 8 0 1 1 8.5 19z" stroke-linejoin="round"></path><path d="M9 8.3c0 3.6 3 6.7 6.7 6.7l1-1.6-2-1-1 .8c-1-.4-2.3-1.7-2.7-2.7l.8-1-1-2z" fill="#15803F" stroke="none"></path></svg>
+        Escribirme por WhatsApp
+      </a>
+    </div>
+    <div style="flex:1 1 320px;min-height:420px;position:relative">
+      <img src="assets/fotos/05-mirando-lejos.jpeg" alt="María mira hacia adelante con serenidad" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 18%;filter:saturate(.85) sepia(.08);display:block">
+    </div>
+  </div>
+</section>
+
+<!-- 9.15 FOOTER -->
+<footer style="background:#0F3D3A;color:#E9F1EE;padding:52px 22px 110px">
+  <div style="max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;gap:28px;justify-content:space-between;align-items:flex-start">
+    <div style="display:flex;gap:16px;align-items:center">
+      <img src="assets/fotos/00-logo-actual.jpeg" alt="Sello FisioMaryFer" style="width:84px;height:84px;border-radius:999px;object-fit:cover">
+      <div>
+        <div style="font-family:'Fraunces',serif;font-style:italic;font-size:28px;color:#FBF7F0">{{ marca }}</div>
+        <div style="font-size:14px;margin-top:4px">Acompañamiento · Movimiento · Bienestar</div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:6px;font-size:16px">
+      <span>WhatsApp [WhatsApp]</span><span>Santa Ana · Palmichal, Acosta</span><span>[Instagram] · [Facebook]</span>
+      <a href="#resenas" style="color:#F6D6DF;font-weight:700;padding:6px 0">★ Dejar una reseña</a>
+    </div>
+  </div>
+  <div style="max-width:1200px;margin:28px auto 0;padding-top:16px;border-top:1px solid rgba(246,214,223,0.25);display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-between;font-size:14px">
+    <span>© 2026 {{ marca }} · Licda. María Monge</span><span style="opacity:.8">Sitio por JC Analytics</span>
+  </div>
+</footer>
+
+<!-- 9.16 FLOTANTE -->
+<div style="position:fixed;right:16px;bottom:18px;z-index:50;display:flex;flex-direction:column;align-items:flex-end;gap:10px">
+  <sc-if value="{{ bubble }}" hint-placeholder-val="{{ false }}">
+    <div style="max-width:230px;background:#FBF7F0;color:#134B47;border-radius:18px 18px 4px 18px;padding:12px 14px;font-size:15px;font-weight:700;box-shadow:0 14px 30px -12px rgba(19,75,71,0.45);display:flex;gap:8px;align-items:flex-start;border:1px solid #F6D6DF">
+      <span>¿Tiene alguna consulta? Escríbame 💬</span>
+      <button onClick="{{ closeBubble }}" aria-label="Cerrar" style="border:0;background:none;color:#4A514F;font-size:18px;cursor:pointer;padding:0 2px;line-height:1">×</button>
+    </div>
+  </sc-if>
+  <a href="{{ wa.general }}" target="_blank" aria-label="Escribir por WhatsApp" style="width:60px;height:60px;border-radius:20px;background:#15803F;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 28px -8px rgba(21,128,63,0.7)">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20l1.3-4A8 8 0 1 1 8.5 19z" stroke-linejoin="round"></path><path d="M9 8.3c0 3.6 3 6.7 6.7 6.7l1-1.6-2-1-1 .8c-1-.4-2.3-1.7-2.7-2.7l.8-1-1-2z" fill="currentColor" stroke="none"></path></svg>
+  </a>
+</div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;marca&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;FisioMaryFer&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;postalesInclinadas&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  state = { menu: false, open: -1, bubble: false, scrolled: false, wide: false };
+  componentDidMount() {
+    this.t = setTimeout(() => this.setState({ bubble: true }), 8000);
+    this.onScroll = () => { const s = window.scrollY > 40; if (s !== this.state.scrolled) this.setState({ scrolled: s }); };
+    this.onResize = () => { const w = window.innerWidth >= 1000; if (w !== this.state.wide) this.setState({ wide: w, menu: false }); };
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    window.addEventListener('resize', this.onResize);
+    this.onResize();
+  }
+  componentWillUnmount() {
+    clearTimeout(this.t);
+    window.removeEventListener('scroll', this.onScroll);
+    window.removeEventListener('resize', this.onResize);
+  }
+  renderVals() {
+    const marca = this.props.marca ?? 'FisioMaryFer';
+    const inclinadas = this.props.postalesInclinadas ?? true;
+    const wa = t => 'https://wa.me/50671396482?text=' + encodeURIComponent(t);
+    const faqQ = ['¿Necesito referencia médica para empezar?', '¿Puedo hacer fisioterapia mientras recibo quimioterapia o radioterapia?', '¿Cuánto dura una sesión?', '¿Qué debo llevar a la primera cita?', '¿Cuánto cuesta?', '¿Puede acompañarme un familiar?'];
+    const tags = [['[Rehabilitación oncológica]', '#8E2E55'], ['[Terapia física]', '#134B47']];
+    const rots = ['-2deg', '1.6deg', '-1deg', '2deg', '-1.8deg', '1deg'];
+    const cards = ['#FFFDF8', '#FBF7F0', '#FFFDF8', '#EEF5F1', '#FFFDF8', '#FBF7F0'];
+    return {
+      marca,
+      wide: this.state.wide, narrow: !this.state.wide,
+      menuOpen: this.state.menu && !this.state.wide,
+      toggleMenu: () => this.setState(s => ({ menu: !s.menu })),
+      closeMenu: () => this.setState({ menu: false }),
+      hdrPad: this.state.scrolled ? '6px 16px' : '14px 16px',
+      ctaHeader: this.state.wide ? 'Agendar por WhatsApp' : 'Agendar',
+      wa: {
+        general: wa('Hola María, vi su página web y quisiera información sobre rehabilitación oncológica.'),
+        onco: wa('Hola María, quisiera información sobre la rehabilitación oncológica.'),
+        tf: wa('Hola María, quisiera consultar sobre terapia física.')
+      },
+      pilares: [{ n: 'i.', t: 'Acompañamiento', d: 'No está sola ni solo en esto. Caminamos juntos cada etapa.' }, { n: 'ii.', t: 'Movimiento', d: 'Ejercicio terapéutico seguro, adaptado a su tratamiento y a su energía.' }, { n: 'iii.', t: 'Bienestar', d: 'Menos dolor, más independencia y más calidad de vida en su día a día.' }],
+      paraQuien: ['Acaba de recibir un diagnóstico y quiere prepararse físicamente.', 'Está en quimioterapia o radioterapia y siente cansancio o debilidad.', 'Tuvo una cirugía (por ejemplo, de mama) y le cuesta mover el hombro o el brazo.', 'Nota hinchazón en el brazo o la pierna (linfedema) o molestias en la cicatriz.', 'Terminó su tratamiento y quiere recuperar su vida activa.', 'Es familiar y busca apoyo para alguien que quiere.'].map((t, i) => ({ t, i: 'a b c d e f'.split(' ')[i] + '.' })),
+      onco: [{ t: 'Valoración funcional inicial', v: '' }, { t: 'Recuperación de movilidad de hombro y brazo después de la cirugía', v: '' }, { t: 'Manejo del linfedema y drenaje linfático manual', v: '[validar]' }, { t: 'Tratamiento de cicatriz y tejidos', v: '[validar]' }, { t: 'Ejercicio terapéutico seguro durante el tratamiento', v: '' }, { t: 'Manejo de la fatiga y del dolor', v: '' }, { t: 'Educación para el autocuidado en casa', v: '' }],
+      tf: ['Dolor musculoesquelético', 'Rehabilitación de lesiones', 'Postoperatorios', 'Ejercicio terapéutico'],
+      valores: [{ n: 'Empatía', d: 'Escucho su historia antes que su diagnóstico.' }, { n: 'Respeto', d: 'Por su cuerpo, sus tiempos y sus decisiones.' }, { n: 'Constancia', d: 'Pequeños avances, sesión a sesión.' }, { n: 'Evidencia', d: 'Cada ejercicio tiene una razón y un respaldo.' }, { n: 'Esperanza', d: 'Siempre hay un paso posible hacia adelante.' }],
+      pasos: [
+        { n: '01', t: 'Me escribe por WhatsApp', d: 'Me cuenta su situación sin compromiso.' },
+        { n: '02', t: 'Valoración inicial', d: 'Evaluamos su movilidad, fuerza, dolor y lo que usted quiere lograr.' },
+        { n: '03', t: 'Plan personalizado', d: 'Diseñamos juntos las sesiones según su tratamiento y su energía.' },
+        { n: '04', t: 'Acompañamiento y seguimiento', d: 'Medimos avances y ajustamos el plan. Celebramos cada logro.' }],
+      testimonios: [0, 1, 0, 1, 0, 1].map((k, i) => ({ tag: tags[k][0], fg: tags[k][1], rot: inclinadas ? rots[i] : '0deg', card: cards[i] })),
+      rapidos: ['Quiero información sobre rehabilitación oncológica', 'Quiero agendar una valoración', 'Escribo por un familiar', 'Consulta sobre terapia física'].map(t => ({ t, href: wa('Hola María. ' + t + '.') })),
+      sedes: [{ k: 'A', n: 'Santa Ana', dir: '[Nombre del lugar / dirección]' }, { k: 'B', n: 'Palmichal, Acosta', dir: '[Dirección]' }],
+      faqs: faqQ.map((q, i) => ({ q, n: String(i + 1).padStart(2, '0'), open: this.state.open === i, icon: this.state.open === i ? '−' : '+', toggle: () => this.setState(s => ({ open: s.open === i ? -1 : i })) })),
+      bubble: this.state.bubble,
+      closeBubble: () => this.setState({ bubble: false })
+    };
+  }
+}
+</script>
+</body>
+</html>
