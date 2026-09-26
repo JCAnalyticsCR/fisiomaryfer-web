@@ -1,5 +1,5 @@
 (() => {
-  const WA = '50671396482';
+  const WA = '50671041425';
   const MSG = {
     general: 'Hola María, vi su página web y quisiera información sobre rehabilitación oncológica.',
     onco: 'Hola María, quisiera información sobre la rehabilitación oncológica.',
