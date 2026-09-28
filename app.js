@@ -95,13 +95,13 @@
   const reviewNameField = document.getElementById('reviewNameField');
   const reviewName = document.getElementById('reviewName');
   const reviewStatus = document.getElementById('reviewStatus');
-  const reviewComplete = document.getElementById('reviewComplete');
-  const savedReviewStars = document.getElementById('savedReviewStars');
-  const savedReviewText = document.getElementById('savedReviewText');
-  const savedReviewAuthor = document.getElementById('savedReviewAuthor');
-  const savedReviewDate = document.getElementById('savedReviewDate');
-  const reviewThanks = document.getElementById('reviewThanks');
   const reviewWall = document.getElementById('reviewWall');
+  const reviewDialog = document.getElementById('reviewDialog');
+  const reviewOpenButton = document.getElementById('reviewOpenButton');
+  const reviewCloseButton = document.getElementById('reviewCloseButton');
+  const reviewEntry = document.getElementById('reviewEntry');
+  const reviewEntryTitle = document.getElementById('reviewEntryTitle');
+  const reviewEntryText = document.getElementById('reviewEntryText');
   const reviewStorageKey = 'renacerVita.review.v1';
 
   const renderReviewCard = review => {
@@ -145,16 +145,12 @@
   };
 
   const renderSavedReview = review => {
-    savedReviewStars.textContent = `${'★'.repeat(review.rating)}${'☆'.repeat(5 - review.rating)}`;
-    savedReviewStars.setAttribute('aria-label', `${review.rating} de 5 estrellas`);
-    savedReviewText.textContent = review.message;
-    savedReviewAuthor.textContent = review.signature;
-    savedReviewDate.textContent = new Intl.DateTimeFormat('es-CR', { dateStyle: 'long' }).format(new Date(review.createdAt));
-    reviewComplete.hidden = false;
-    reviewForm.classList.add('is-complete');
     reviews.classList.add('has-saved-review');
-    reviewThanks.hidden = false;
     renderReviewCard(review);
+    reviewEntry.classList.add('is-complete');
+    reviewEntryTitle.textContent = 'Gracias por compartir su experiencia.';
+    reviewEntryText.textContent = 'Su reseña aparece destacada al inicio de este espacio.';
+    reviewOpenButton.hidden = true;
   };
 
   try {
@@ -168,6 +164,16 @@
 
   reviewMessage.addEventListener('input', () => {
     reviewCount.textContent = String(reviewMessage.value.length);
+  });
+
+  reviewOpenButton.addEventListener('click', () => {
+    reviewStatus.textContent = '';
+    reviewDialog.showModal();
+  });
+
+  reviewCloseButton.addEventListener('click', () => reviewDialog.close());
+  reviewDialog.addEventListener('click', event => {
+    if (event.target === reviewDialog) reviewDialog.close();
   });
 
   reviewForm.querySelectorAll('input[name="identity"]').forEach(option => {
@@ -204,6 +210,7 @@
       }
       localStorage.setItem(reviewStorageKey, JSON.stringify(review));
       renderSavedReview(review);
+      reviewDialog.close();
     } catch {
       reviewStatus.textContent = 'No fue posible guardar la reseña. Revise que el navegador permita almacenar datos del sitio.';
     }
@@ -211,7 +218,7 @@
 
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const revealTargets = [
-    ...document.querySelectorAll('.section-intro, .method-photo, .method-cards article, .care-explorer__heading, .care-item, .services-intro, .service-card, .promise-copy, .promise-stack article, .about-gallery, .about-copy, .contact-card, .faq-heading, .faq details, .reviews-heading, .review-invitation, .review-form, .review-showcase__heading, .testimonial')
+    ...document.querySelectorAll('.section-intro, .method-photo, .method-cards article, .care-explorer__heading, .care-item, .services-intro, .service-card, .promise-copy, .promise-stack article, .about-gallery, .about-copy, .contact-card, .faq-heading, .faq details, .reviews-heading, .review-showcase__heading, .testimonial, .review-entry')
   ];
 
   revealTargets.forEach((element, index) => {
@@ -219,8 +226,8 @@
     element.style.setProperty('--reveal-delay', `${(index % 3) * 70}ms`);
   });
 
-  document.querySelectorAll('.method-photo, .about-gallery, .faq-heading, .review-invitation').forEach(element => element.classList.add('reveal-from-left'));
-  document.querySelectorAll('.about-copy, .contact-card, .review-form').forEach(element => element.classList.add('reveal-from-right'));
+  document.querySelectorAll('.method-photo, .about-gallery, .faq-heading').forEach(element => element.classList.add('reveal-from-left'));
+  document.querySelectorAll('.about-copy, .contact-card').forEach(element => element.classList.add('reveal-from-right'));
 
   if (!reducedMotion && 'IntersectionObserver' in window) {
     document.documentElement.classList.add('motion-ready');

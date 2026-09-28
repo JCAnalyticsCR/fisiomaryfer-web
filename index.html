@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
   <link rel="preload" as="image" href="assets/fotos/02-retrato-menton.jpeg" fetchpriority="high">
-  <link rel="stylesheet" href="styles.css?v=20260928-3">
+  <link rel="stylesheet" href="styles.css?v=20260928-4">
 </head>
 <body>
   <a class="skip" href="#contenido">Saltar al contenido</a>
@@ -274,75 +274,6 @@
           <p>Comparta cómo vivió su atención en Renacer Vita. Puede firmar su mensaje o enviarlo de forma anónima.</p>
         </div>
 
-        <div class="reviews-layout">
-          <aside class="review-invitation" aria-label="Cómo se gestionan las reseñas">
-            <span class="review-quote" aria-hidden="true">“</span>
-            <h3>Una experiencia contada con sus propias palabras.</h3>
-            <p>Su reseña se guarda directamente en este navegador y aparece aquí mismo, sin abrir ninguna otra aplicación.</p>
-            <div class="review-promises">
-              <div><i aria-hidden="true">♡</i><span><strong>Usted decide</strong>Use su nombre o manténgala anónima.</span></div>
-              <div><i aria-hidden="true">✓</i><span><strong>Una sola participación</strong>El formulario se bloquea después de publicar.</span></div>
-            </div>
-            <div class="review-signoff"><span>Gracias por compartir</span><strong>Renacer Vita</strong></div>
-          </aside>
-
-          <form class="review-form" id="reviewForm">
-            <div class="review-form__top">
-              <div><span>Dejar una reseña</span><small>Una participación por dispositivo</small></div>
-              <span class="review-form__mark" aria-hidden="true">✦</span>
-            </div>
-
-            <fieldset class="rating-field">
-              <legend>¿Cómo calificaría su experiencia?</legend>
-              <div class="rating-options" aria-label="Puntuación de una a cinco estrellas">
-                <input type="radio" name="rating" id="rating-5" value="5" required><label for="rating-5" title="5 estrellas"><span aria-hidden="true">★</span><span class="sr-only">5 estrellas</span></label>
-                <input type="radio" name="rating" id="rating-4" value="4"><label for="rating-4" title="4 estrellas"><span aria-hidden="true">★</span><span class="sr-only">4 estrellas</span></label>
-                <input type="radio" name="rating" id="rating-3" value="3"><label for="rating-3" title="3 estrellas"><span aria-hidden="true">★</span><span class="sr-only">3 estrellas</span></label>
-                <input type="radio" name="rating" id="rating-2" value="2"><label for="rating-2" title="2 estrellas"><span aria-hidden="true">★</span><span class="sr-only">2 estrellas</span></label>
-                <input type="radio" name="rating" id="rating-1" value="1"><label for="rating-1" title="1 estrella"><span aria-hidden="true">★</span><span class="sr-only">1 estrella</span></label>
-              </div>
-            </fieldset>
-
-            <fieldset class="identity-field">
-              <legend>¿Cómo desea compartirla?</legend>
-              <div class="identity-options">
-                <label><input type="radio" name="identity" value="name" checked><span>Con mi nombre</span></label>
-                <label><input type="radio" name="identity" value="anonymous"><span>Anónima</span></label>
-              </div>
-            </fieldset>
-
-            <label class="review-control" id="reviewNameField">
-              <span>Nombre para mostrar</span>
-              <input type="text" id="reviewName" name="reviewName" maxlength="60" autocomplete="name" placeholder="Por ejemplo: Ana M." required>
-            </label>
-
-            <label class="review-control review-control--message">
-              <span>Cuéntenos su experiencia</span>
-              <textarea id="reviewMessage" name="reviewMessage" minlength="20" maxlength="500" rows="6" placeholder="¿Qué fue lo que más valoró de su atención o de su proceso?" required></textarea>
-              <small><span id="reviewCount">0</span>/500 caracteres</small>
-            </label>
-
-            <div class="review-privacy-note"><span aria-hidden="true">i</span><p>Evite incluir diagnósticos, teléfonos u otros datos médicos o personales.</p></div>
-            <button class="button button--teal button--large review-submit" type="submit">Publicar mi reseña <span>→</span></button>
-            <p class="review-form__note">Se mostrará en este espacio y quedará ligada a los datos guardados por este navegador.</p>
-            <p class="review-status" id="reviewStatus" role="status" aria-live="polite"></p>
-
-            <div class="review-complete" id="reviewComplete" hidden>
-              <span class="review-complete__icon" aria-hidden="true">✓</span>
-              <p class="review-complete__label">Reseña registrada</p>
-              <div class="review-complete__stars" id="savedReviewStars" aria-label="Puntuación registrada"></div>
-              <blockquote id="savedReviewText"></blockquote>
-              <div class="review-complete__author"><strong id="savedReviewAuthor"></strong><span id="savedReviewDate"></span></div>
-              <p class="review-complete__lock">Gracias por compartir. Este dispositivo ya utilizó su oportunidad de publicar una reseña.</p>
-            </div>
-          </form>
-        </div>
-
-        <div class="review-thanks" id="reviewThanks" hidden>
-          <span aria-hidden="true">✓</span>
-          <div><strong>Gracias por compartir su experiencia.</strong><p>Su reseña ya forma parte de esta vista y aparece destacada al inicio.</p></div>
-        </div>
-
         <section class="review-showcase" aria-labelledby="review-wall-title">
           <div class="review-showcase__heading">
             <div>
@@ -371,8 +302,50 @@
               <footer><span class="testimonial__avatar" aria-hidden="true">DC</span><div><strong>Daniela C.</strong><small>Testimonio de demostración</small></div><i aria-hidden="true">“</i></footer>
             </article>
           </div>
+
+          <div class="review-entry" id="reviewEntry">
+            <span class="review-entry__icon" aria-hidden="true">✦</span>
+            <div><strong id="reviewEntryTitle">¿Desea compartir su experiencia?</strong><p id="reviewEntryText">Puede hacerlo con su nombre o de forma anónima. Solo le tomará un momento.</p></div>
+            <button class="review-entry__button" id="reviewOpenButton" type="button">Dejar una reseña <span>→</span></button>
+          </div>
         </section>
       </div>
+
+      <dialog class="review-dialog" id="reviewDialog" aria-labelledby="reviewDialogTitle">
+        <form class="review-form review-form--compact" id="reviewForm">
+          <div class="review-form__top">
+            <div><span id="reviewDialogTitle">Su experiencia</span><small>Una participación por dispositivo</small></div>
+            <button class="review-dialog__close" id="reviewCloseButton" type="button" aria-label="Cerrar formulario">×</button>
+          </div>
+
+          <fieldset class="rating-field">
+            <legend>¿Cómo calificaría su atención?</legend>
+            <div class="rating-options" aria-label="Puntuación de una a cinco estrellas">
+              <input type="radio" name="rating" id="rating-5" value="5" required><label for="rating-5" title="5 estrellas"><span aria-hidden="true">★</span><span class="sr-only">5 estrellas</span></label>
+              <input type="radio" name="rating" id="rating-4" value="4"><label for="rating-4" title="4 estrellas"><span aria-hidden="true">★</span><span class="sr-only">4 estrellas</span></label>
+              <input type="radio" name="rating" id="rating-3" value="3"><label for="rating-3" title="3 estrellas"><span aria-hidden="true">★</span><span class="sr-only">3 estrellas</span></label>
+              <input type="radio" name="rating" id="rating-2" value="2"><label for="rating-2" title="2 estrellas"><span aria-hidden="true">★</span><span class="sr-only">2 estrellas</span></label>
+              <input type="radio" name="rating" id="rating-1" value="1"><label for="rating-1" title="1 estrella"><span aria-hidden="true">★</span><span class="sr-only">1 estrella</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="identity-field">
+            <legend>¿Cómo desea compartirla?</legend>
+            <div class="identity-options">
+              <label><input type="radio" name="identity" value="name" checked><span>Con mi nombre</span></label>
+              <label><input type="radio" name="identity" value="anonymous"><span>Anónima</span></label>
+            </div>
+          </fieldset>
+
+          <label class="review-control" id="reviewNameField"><span>Nombre para mostrar</span><input type="text" id="reviewName" name="reviewName" maxlength="60" autocomplete="name" placeholder="Por ejemplo: Ana M." required></label>
+          <label class="review-control review-control--message"><span>Su reseña</span><textarea id="reviewMessage" name="reviewMessage" minlength="20" maxlength="350" rows="4" placeholder="Cuéntenos brevemente qué fue lo que más valoró." required></textarea><small><span id="reviewCount">0</span>/350 caracteres</small></label>
+
+          <div class="review-privacy-note"><span aria-hidden="true">i</span><p>Evite incluir diagnósticos, teléfonos u otros datos personales.</p></div>
+          <button class="button button--teal review-submit" type="submit">Publicar reseña <span>→</span></button>
+          <p class="review-form__note">Esta demostración guarda la reseña únicamente en este navegador.</p>
+          <p class="review-status" id="reviewStatus" role="status" aria-live="polite"></p>
+        </form>
+      </dialog>
     </section>
   </main>
 
@@ -388,6 +361,6 @@
   <nav class="mobile-dock" id="mobileDock" aria-label="Acciones rápidas"><a href="#especialidades">Ver servicios</a><a class="js-wa" data-msg="general" href="https://wa.me/50671041425" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1.3-4A8 8 0 1 1 8.5 19Z"/><path d="M9 8.3c0 3.6 3 6.7 6.7 6.7l1-1.6-2-1-1 .8c-1-.4-2.3-1.7-2.7-2.7l.8-1-1-2Z"/></svg>WhatsApp</a></nav>
   <a class="whatsapp-float js-wa" data-msg="general" href="https://wa.me/50671041425" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1.3-4A8 8 0 1 1 8.5 19Z"/><path d="M9 8.3c0 3.6 3 6.7 6.7 6.7l1-1.6-2-1-1 .8c-1-.4-2.3-1.7-2.7-2.7l.8-1-1-2Z"/></svg></a>
 
-  <script src="app.js?v=20260928-3" defer></script>
+  <script src="app.js?v=20260928-4" defer></script>
 </body>
 </html>
