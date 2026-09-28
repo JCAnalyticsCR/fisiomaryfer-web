@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
   <link rel="preload" as="image" href="assets/fotos/02-retrato-menton.jpeg" fetchpriority="high">
-  <link rel="stylesheet" href="styles.css?v=20260928-1">
+  <link rel="stylesheet" href="styles.css?v=20260928-2">
 </head>
 <body>
   <a class="skip" href="#contenido">Saltar al contenido</a>
@@ -278,17 +278,17 @@
           <aside class="review-invitation" aria-label="Cómo se gestionan las reseñas">
             <span class="review-quote" aria-hidden="true">“</span>
             <h3>Una experiencia contada con sus propias palabras.</h3>
-            <p>Las reseñas se reciben de forma privada y se revisan antes de publicarse para proteger su información personal.</p>
+            <p>Su reseña se guarda directamente en este navegador y aparece aquí mismo, sin abrir ninguna otra aplicación.</p>
             <div class="review-promises">
               <div><i aria-hidden="true">♡</i><span><strong>Usted decide</strong>Use su nombre o manténgala anónima.</span></div>
-              <div><i aria-hidden="true">✓</i><span><strong>Publicación cuidada</strong>Nunca incluimos datos clínicos sin autorización.</span></div>
+              <div><i aria-hidden="true">✓</i><span><strong>Una sola participación</strong>El formulario se bloquea después de publicar.</span></div>
             </div>
             <div class="review-signoff"><span>Gracias por compartir</span><strong>Renacer Vita</strong></div>
           </aside>
 
           <form class="review-form" id="reviewForm">
             <div class="review-form__top">
-              <div><span>Dejar una reseña</span><small>Le tomará menos de dos minutos</small></div>
+              <div><span>Dejar una reseña</span><small>Una participación por dispositivo</small></div>
               <span class="review-form__mark" aria-hidden="true">✦</span>
             </div>
 
@@ -322,10 +322,19 @@
               <small><span id="reviewCount">0</span>/500 caracteres</small>
             </label>
 
-            <label class="review-consent"><input type="checkbox" id="reviewConsent" required><span>Autorizo a Renacer Vita a revisar y publicar esta reseña en sus canales, respetando la identidad que elegí.</span></label>
-            <button class="button button--teal button--large review-submit" type="submit">Preparar mi reseña <span>→</span></button>
-            <p class="review-form__note">Al continuar se abrirá WhatsApp con su mensaje preparado. Usted podrá revisarlo antes de enviarlo.</p>
+            <div class="review-privacy-note"><span aria-hidden="true">i</span><p>Evite incluir diagnósticos, teléfonos u otros datos médicos o personales.</p></div>
+            <button class="button button--teal button--large review-submit" type="submit">Publicar mi reseña <span>→</span></button>
+            <p class="review-form__note">Se mostrará en este espacio y quedará ligada a los datos guardados por este navegador.</p>
             <p class="review-status" id="reviewStatus" role="status" aria-live="polite"></p>
+
+            <div class="review-complete" id="reviewComplete" hidden>
+              <span class="review-complete__icon" aria-hidden="true">✓</span>
+              <p class="review-complete__label">Reseña registrada</p>
+              <div class="review-complete__stars" id="savedReviewStars" aria-label="Puntuación registrada"></div>
+              <blockquote id="savedReviewText"></blockquote>
+              <div class="review-complete__author"><strong id="savedReviewAuthor"></strong><span id="savedReviewDate"></span></div>
+              <p class="review-complete__lock">Gracias por compartir. Este dispositivo ya utilizó su oportunidad de publicar una reseña.</p>
+            </div>
           </form>
         </div>
       </div>
@@ -355,6 +364,6 @@
   <nav class="mobile-dock" id="mobileDock" aria-label="Acciones rápidas"><a href="#especialidades">Ver servicios</a><a class="js-wa" data-msg="general" href="https://wa.me/50671041425" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1.3-4A8 8 0 1 1 8.5 19Z"/><path d="M9 8.3c0 3.6 3 6.7 6.7 6.7l1-1.6-2-1-1 .8c-1-.4-2.3-1.7-2.7-2.7l.8-1-1-2Z"/></svg>WhatsApp</a></nav>
   <a class="whatsapp-float js-wa" data-msg="general" href="https://wa.me/50671041425" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1.3-4A8 8 0 1 1 8.5 19Z"/><path d="M9 8.3c0 3.6 3 6.7 6.7 6.7l1-1.6-2-1-1 .8c-1-.4-2.3-1.7-2.7-2.7l.8-1-1-2Z"/></svg></a>
 
-  <script src="app.js?v=20260928-1" defer></script>
+  <script src="app.js?v=20260928-2" defer></script>
 </body>
 </html>

@@ -102,6 +102,31 @@
   const reviewNameField = document.getElementById('reviewNameField');
   const reviewName = document.getElementById('reviewName');
   const reviewStatus = document.getElementById('reviewStatus');
+  const reviewComplete = document.getElementById('reviewComplete');
+  const savedReviewStars = document.getElementById('savedReviewStars');
+  const savedReviewText = document.getElementById('savedReviewText');
+  const savedReviewAuthor = document.getElementById('savedReviewAuthor');
+  const savedReviewDate = document.getElementById('savedReviewDate');
+  const reviewStorageKey = 'renacerVita.review.v1';
+
+  const renderSavedReview = review => {
+    savedReviewStars.textContent = `${'★'.repeat(review.rating)}${'☆'.repeat(5 - review.rating)}`;
+    savedReviewStars.setAttribute('aria-label', `${review.rating} de 5 estrellas`);
+    savedReviewText.textContent = review.message;
+    savedReviewAuthor.textContent = review.signature;
+    savedReviewDate.textContent = new Intl.DateTimeFormat('es-CR', { dateStyle: 'long' }).format(new Date(review.createdAt));
+    reviewComplete.hidden = false;
+    reviewForm.classList.add('is-complete');
+  };
+
+  try {
+    const savedReview = JSON.parse(localStorage.getItem(reviewStorageKey));
+    if (savedReview && Number.isInteger(savedReview.rating) && savedReview.message && savedReview.signature && savedReview.createdAt) {
+      renderSavedReview(savedReview);
+    }
+  } catch {
+    localStorage.removeItem(reviewStorageKey);
+  }
 
   reviewMessage.addEventListener('input', () => {
     reviewCount.textContent = String(reviewMessage.value.length);
@@ -127,18 +152,23 @@
     const rating = reviewForm.querySelector('input[name="rating"]:checked').value;
     const anonymous = reviewForm.querySelector('input[name="identity"]:checked').value === 'anonymous';
     const signature = anonymous ? 'Anónima' : reviewName.value.trim();
-    const message = [
-      'Hola María, quisiera compartir una reseña para Renacer Vita.',
-      '',
-      `Puntuación: ${rating} de 5 estrellas`,
-      `Nombre para publicar: ${signature}`,
-      `Reseña: ${reviewMessage.value.trim()}`,
-      '',
-      'Autorizo que esta reseña sea revisada y publicada respetando la identidad elegida.'
-    ].join('\n');
+    const review = {
+      rating: Number(rating),
+      signature,
+      message: reviewMessage.value.trim(),
+      createdAt: new Date().toISOString()
+    };
 
-    reviewStatus.textContent = 'Su reseña está lista. Abrimos WhatsApp para que pueda revisarla y enviarla.';
-    window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, '_blank', 'noopener,noreferrer');
+    try {
+      if (localStorage.getItem(reviewStorageKey)) {
+        reviewStatus.textContent = 'Este dispositivo ya registró una reseña.';
+        return;
+      }
+      localStorage.setItem(reviewStorageKey, JSON.stringify(review));
+      renderSavedReview(review);
+    } catch {
+      reviewStatus.textContent = 'No fue posible guardar la reseña. Revise que el navegador permita almacenar datos del sitio.';
+    }
   });
 
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
