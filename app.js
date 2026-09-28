@@ -42,15 +42,13 @@
   const contact = document.getElementById('contacto');
   const faq = document.getElementById('preguntas');
   const reviews = document.getElementById('resenas');
-  const closing = document.querySelector('.closing');
   const footer = document.querySelector('.footer');
   let heroPassed = false;
   let contactVisible = false;
   let faqVisible = false;
   let reviewsVisible = false;
-  let closingVisible = false;
   let footerVisible = false;
-  const syncDock = () => mobileDock.classList.toggle('is-visible', heroPassed && !contactVisible && !faqVisible && !reviewsVisible && !closingVisible && !footerVisible);
+  const syncDock = () => mobileDock.classList.toggle('is-visible', heroPassed && !contactVisible && !faqVisible && !reviewsVisible && !footerVisible);
 
   new IntersectionObserver(([entry]) => {
     heroPassed = !entry.isIntersecting && entry.boundingClientRect.top < 0;
@@ -71,11 +69,6 @@
     reviewsVisible = entry.isIntersecting;
     syncDock();
   }, { threshold: .06 }).observe(reviews);
-
-  new IntersectionObserver(([entry]) => {
-    closingVisible = entry.isIntersecting;
-    syncDock();
-  }, { threshold: .08 }).observe(closing);
 
   new IntersectionObserver(([entry]) => {
     footerVisible = entry.isIntersecting;
@@ -107,7 +100,49 @@
   const savedReviewText = document.getElementById('savedReviewText');
   const savedReviewAuthor = document.getElementById('savedReviewAuthor');
   const savedReviewDate = document.getElementById('savedReviewDate');
+  const reviewThanks = document.getElementById('reviewThanks');
+  const reviewWall = document.getElementById('reviewWall');
   const reviewStorageKey = 'renacerVita.review.v1';
+
+  const renderReviewCard = review => {
+    const existing = reviewWall.querySelector('[data-saved-review]');
+    if (existing) existing.remove();
+
+    const card = document.createElement('article');
+    card.className = 'testimonial testimonial--personal';
+    card.dataset.savedReview = 'true';
+
+    const top = document.createElement('div');
+    top.className = 'testimonial__top';
+    const stars = document.createElement('span');
+    stars.className = 'testimonial__stars';
+    stars.textContent = `${'★'.repeat(review.rating)}${'☆'.repeat(5 - review.rating)}`;
+    stars.setAttribute('aria-label', `${review.rating} de 5 estrellas`);
+    const badge = document.createElement('span');
+    badge.className = 'testimonial__service';
+    badge.textContent = 'Su reseña';
+    top.append(stars, badge);
+
+    const quote = document.createElement('blockquote');
+    quote.textContent = `“${review.message}”`;
+    const footer = document.createElement('footer');
+    const avatar = document.createElement('span');
+    avatar.className = 'testimonial__avatar';
+    avatar.setAttribute('aria-hidden', 'true');
+    avatar.textContent = review.signature === 'Anónima' ? '♡' : review.signature.trim().charAt(0).toUpperCase();
+    const identity = document.createElement('div');
+    const author = document.createElement('strong');
+    author.textContent = review.signature;
+    const date = document.createElement('small');
+    date.textContent = new Intl.DateTimeFormat('es-CR', { dateStyle: 'long' }).format(new Date(review.createdAt));
+    identity.append(author, date);
+    const mark = document.createElement('i');
+    mark.setAttribute('aria-hidden', 'true');
+    mark.textContent = '“';
+    footer.append(avatar, identity, mark);
+    card.append(top, quote, footer);
+    reviewWall.prepend(card);
+  };
 
   const renderSavedReview = review => {
     savedReviewStars.textContent = `${'★'.repeat(review.rating)}${'☆'.repeat(5 - review.rating)}`;
@@ -117,6 +152,9 @@
     savedReviewDate.textContent = new Intl.DateTimeFormat('es-CR', { dateStyle: 'long' }).format(new Date(review.createdAt));
     reviewComplete.hidden = false;
     reviewForm.classList.add('is-complete');
+    reviews.classList.add('has-saved-review');
+    reviewThanks.hidden = false;
+    renderReviewCard(review);
   };
 
   try {
@@ -173,7 +211,7 @@
 
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const revealTargets = [
-    ...document.querySelectorAll('.section-intro, .method-photo, .method-cards article, .care-explorer__heading, .care-item, .services-intro, .service-card, .promise-copy, .promise-stack article, .about-gallery, .about-copy, .contact-card, .faq-heading, .faq details, .reviews-heading, .review-invitation, .review-form')
+    ...document.querySelectorAll('.section-intro, .method-photo, .method-cards article, .care-explorer__heading, .care-item, .services-intro, .service-card, .promise-copy, .promise-stack article, .about-gallery, .about-copy, .contact-card, .faq-heading, .faq details, .reviews-heading, .review-invitation, .review-form, .review-showcase__heading, .testimonial')
   ];
 
   revealTargets.forEach((element, index) => {

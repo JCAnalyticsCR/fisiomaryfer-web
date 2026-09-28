@@ -6,7 +6,7 @@ Sitio de fisioterapia de la Licda. María Monge para rehabilitación oncológica
 - Diseño editorial cálido, clínico y contemporáneo.
 - Front-end estático sin frameworks: `index.html` + `styles.css` + `app.js` + `assets/fotos/`.
 - Experiencia mobile-first con navegación adaptable y acciones de WhatsApp visibles.
-- Contacto por WhatsApp y formulario de reseña local: una participación por navegador, sin redirecciones ni almacenamiento de datos clínicos.
+- Contacto por WhatsApp y formulario de reseña local: una participación por navegador, sin redirecciones ni almacenamiento de datos clínicos. El muro incluye testimonios ficticios identificados como contenido de demostración hasta conectar una base de datos real.
 
 Para verlo localmente:
 

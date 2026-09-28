@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
   <link rel="preload" as="image" href="assets/fotos/02-retrato-menton.jpeg" fetchpriority="high">
-  <link rel="stylesheet" href="styles.css?v=20260928-2">
+  <link rel="stylesheet" href="styles.css?v=20260928-3">
 </head>
 <body>
   <a class="skip" href="#contenido">Saltar al contenido</a>
@@ -337,17 +337,41 @@
             </div>
           </form>
         </div>
-      </div>
-    </section>
 
-    <section class="closing" id="comenzar" aria-labelledby="closing-title">
-      <div class="closing-overlay"></div>
-      <div class="shell closing-shell">
-        <div class="closing-content">
-          <div class="closing-brand"><img src="assets/fotos/logo-renacer-vita.jpeg" alt="" width="1250" height="1250"><p>Acompañamiento · movimiento · bienestar</p></div>
-          <h2 id="closing-title">Hay una forma de avanzar que comienza a su ritmo.</h2>
-          <div class="closing-actions"><a class="button button--white button--large js-wa" data-msg="general" href="https://wa.me/50671041425" target="_blank" rel="noopener">Agendar una valoración <span>→</span></a><span>Santa Ana · Palmichal, Acosta</span></div>
+        <div class="review-thanks" id="reviewThanks" hidden>
+          <span aria-hidden="true">✓</span>
+          <div><strong>Gracias por compartir su experiencia.</strong><p>Su reseña ya forma parte de esta vista y aparece destacada al inicio.</p></div>
         </div>
+
+        <section class="review-showcase" aria-labelledby="review-wall-title">
+          <div class="review-showcase__heading">
+            <div>
+              <p class="eyebrow eyebrow--light"><span></span>Voces que dejan huella</p>
+              <h3 id="review-wall-title">Experiencias que pueden ayudar a otras personas a dar el primer paso.</h3>
+            </div>
+            <p><strong>Vista de demostración</strong>Los nombres y testimonios mostrados a continuación son ficticios y sirven para visualizar el diseño final.</p>
+          </div>
+
+          <div class="review-wall" id="reviewWall">
+            <article class="testimonial testimonial--featured">
+              <div class="testimonial__top"><span class="testimonial__stars" aria-label="5 de 5 estrellas">★★★★★</span><span class="testimonial__service">Rehabilitación oncológica</span></div>
+              <blockquote>“Me sentí escuchada desde la primera sesión. Cada ejercicio tuvo una explicación clara y avancé sin sentir que tenía que apresurar mi proceso.”</blockquote>
+              <footer><span class="testimonial__avatar" aria-hidden="true">LM</span><div><strong>Laura M.</strong><small>Testimonio de demostración</small></div><i aria-hidden="true">“</i></footer>
+            </article>
+
+            <article class="testimonial testimonial--teal">
+              <div class="testimonial__top"><span class="testimonial__stars" aria-label="5 de 5 estrellas">★★★★★</span><span class="testimonial__service">Fisioterapia ortopédica</span></div>
+              <blockquote>“Volví a moverme con más confianza y, sobre todo, entendí cómo cuidar mi cuerpo fuera de consulta.”</blockquote>
+              <footer><span class="testimonial__avatar" aria-hidden="true">SR</span><div><strong>Sofía R.</strong><small>Testimonio de demostración</small></div><i aria-hidden="true">“</i></footer>
+            </article>
+
+            <article class="testimonial testimonial--gold">
+              <div class="testimonial__top"><span class="testimonial__stars" aria-label="5 de 5 estrellas">★★★★★</span><span class="testimonial__service">Rehabilitación deportiva</span></div>
+              <blockquote>“El plan se adaptó a mis metas y a mi ritmo. Sentí acompañamiento, seguridad y progreso real.”</blockquote>
+              <footer><span class="testimonial__avatar" aria-hidden="true">DC</span><div><strong>Daniela C.</strong><small>Testimonio de demostración</small></div><i aria-hidden="true">“</i></footer>
+            </article>
+          </div>
+        </section>
       </div>
     </section>
   </main>
@@ -364,6 +388,6 @@
   <nav class="mobile-dock" id="mobileDock" aria-label="Acciones rápidas"><a href="#especialidades">Ver servicios</a><a class="js-wa" data-msg="general" href="https://wa.me/50671041425" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1.3-4A8 8 0 1 1 8.5 19Z"/><path d="M9 8.3c0 3.6 3 6.7 6.7 6.7l1-1.6-2-1-1 .8c-1-.4-2.3-1.7-2.7-2.7l.8-1-1-2Z"/></svg>WhatsApp</a></nav>
   <a class="whatsapp-float js-wa" data-msg="general" href="https://wa.me/50671041425" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1.3-4A8 8 0 1 1 8.5 19Z"/><path d="M9 8.3c0 3.6 3 6.7 6.7 6.7l1-1.6-2-1-1 .8c-1-.4-2.3-1.7-2.7-2.7l.8-1-1-2Z"/></svg></a>
 
-  <script src="app.js?v=20260928-2" defer></script>
+  <script src="app.js?v=20260928-3" defer></script>
 </body>
 </html>
