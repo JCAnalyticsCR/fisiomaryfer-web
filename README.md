@@ -1,11 +1,12 @@
-# FisioMaryFer — Sitio web
+# Renacer Vita — Sitio web
 
-Landing page de rehabilitación oncológica de la Licda. María Monge (Santa Ana y Palmichal, Acosta).
+Sitio de fisioterapia de la Licda. María Monge para rehabilitación oncológica, deportiva y ortopédica en Santa Ana y Palmichal, Acosta.
 
-- Diseño: "Jardín editorial" (definitivo).
+- Identidad visual inspirada en el nuevo logo Renacer Vita: turquesa, rosa, magenta y dorado.
+- Diseño editorial cálido, clínico y contemporáneo.
 - Front-end estático sin frameworks: `index.html` + `styles.css` + `app.js` + `assets/fotos/`.
-- Mobile-first: timeline vertical, carrusel con puntos, barra inferior de WhatsApp y reseña en celular.
-- Contacto por WhatsApp; sin backend ni formularios.
+- Experiencia mobile-first con navegación adaptable y acciones de WhatsApp visibles.
+- Contacto y recepción moderada de reseñas mediante WhatsApp, sin almacenar datos clínicos en la web.
 
 Para verlo localmente:
 
