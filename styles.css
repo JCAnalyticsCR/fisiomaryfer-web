@@ -166,10 +166,15 @@ svg { display: block; }
 .services-intro > p:last-child { color: rgba(255,255,255,.7); }
 .service-grid { display: grid; gap: 18px; }
 .service-card { overflow: hidden; background: var(--paper); color: var(--ink); border-radius: 28px; box-shadow: 0 28px 55px rgba(36,8,27,.14); transition: transform .4s var(--ease), box-shadow .4s var(--ease); }
-.service-media { position: relative; aspect-ratio: 16/10; overflow: hidden; }
-.service-media img { height: 100%; object-fit: cover; object-position: center 24%; transition: transform .7s var(--ease); }
+.service-media { position: relative; aspect-ratio: 4/3; overflow: hidden; background: #dfe9e4; }
+.service-media::after { content: ""; position: absolute; inset: auto 0 0; height: 34%; background: linear-gradient(transparent, rgba(45,20,36,.55)); pointer-events: none; }
+.service-media img { height: 100%; object-fit: cover; object-position: center var(--service-focus, 50%); transition: transform .7s var(--ease); }
+.service-card--onco { --service-focus: 48%; }
+.service-card--sport { --service-focus: 47%; }
+.service-card--ortho { --service-focus: 50%; }
 .service-card:hover .service-media img { transform: scale(1.035); }
-.service-tag { position: absolute; left: 20px; top: 20px; padding: 7px 12px; background: linear-gradient(135deg, var(--gold-light), var(--gold)); color: var(--plum); border-radius: 999px; font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.service-scene { position: absolute; z-index: 1; left: 18px; right: 18px; bottom: 17px; display: flex; align-items: center; gap: 9px; color: #fff; font-size: 11px; font-weight: 700; letter-spacing: .11em; text-transform: uppercase; text-shadow: 0 2px 14px rgba(36,8,27,.4); }
+.service-scene::before { content: ""; width: 22px; height: 1px; flex: 0 0 auto; background: var(--gold-light); }
 .service-body { padding: 26px; }
 .service-kicker { margin: 0 0 8px; color: var(--teal-dark); font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
 .service-card h3 { margin: 0 0 13px; color: var(--plum); font: 600 32px/1.08 var(--display); letter-spacing: -.02em; }
@@ -500,6 +505,14 @@ svg { display: block; }
   .care-trigger strong { font-size: 23px; }
   .care-label em { font-size: 11px; }
   .care-detail p { padding: 0 17px 17px 75px; }
+  .services-intro { margin-bottom: 30px; }
+  .service-grid { gap: 22px; }
+  .service-card { border-radius: 24px; }
+  .service-media { aspect-ratio: 4/3; }
+  .service-body { padding: 24px 20px 20px; }
+  .service-card h3 { font-size: 31px; }
+  .service-body > p:not(.service-kicker) { font-size: 15px; line-height: 1.65; }
+  .service-link { margin-top: 20px; }
   .faq-note { padding: 20px; border-radius: 22px; }
   .faq-panel { padding: 10px; border-radius: 26px; }
   .faq-panel::before { inset: 5px; border-radius: 21px; }
