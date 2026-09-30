@@ -102,10 +102,10 @@ svg { display: block; }
 .hero-photo img { height: 100%; object-fit: cover; object-position: 50% 17%; }
 .hero-seal { position: absolute; z-index: 3; left: -4px; bottom: 4px; width: 132px; aspect-ratio: 1; padding: 3px; overflow: hidden; background: #fff; border: 1px solid var(--gold-soft); border-radius: 50%; box-shadow: 0 15px 35px rgba(94,35,73,.17); }
 .hero-seal img { height: 100%; object-fit: cover; border-radius: 50%; }
-.hero-note { position: absolute; z-index: 2; right: 0; bottom: 30px; min-width: 190px; padding: 15px 18px 15px 40px; background: linear-gradient(135deg, var(--plum), var(--magenta)); color: #fff; border-radius: 14px; box-shadow: 0 15px 35px rgba(94,35,73,.2); transform: rotate(-2deg); }
+.hero-note { position: absolute; z-index: 2; left: 104px; right: 0; bottom: 30px; padding: 14px 16px 14px 34px; background: linear-gradient(135deg, var(--plum), var(--magenta)); color: #fff; border-radius: 14px; box-shadow: 0 15px 35px rgba(94,35,73,.2); transform: rotate(-2deg); }
 .hero-note span, .hero-note strong { display: block; }
 .hero-note span { color: var(--gold-light); font-size: 10px; font-weight: 700; letter-spacing: .11em; text-transform: uppercase; }
-.hero-note strong { margin-top: 3px; font: italic 500 17px var(--display); }
+.hero-note strong { margin-top: 3px; font: italic 500 17px/1.25 var(--display); text-wrap: balance; }
 
 .brand-manifesto { overflow: hidden; background: linear-gradient(110deg, var(--teal-dark), var(--teal)); color: #fff; }
 .manifesto-track { display: flex; width: max-content; will-change: transform; }
