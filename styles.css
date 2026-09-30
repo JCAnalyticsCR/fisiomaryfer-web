@@ -573,3 +573,8 @@ svg { display: block; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
 }
+
+/* Zonas desde donde llegan pacientes: línea discreta bajo las sedes */
+.contact-locations .contact-reach { margin: 6px 0 0; padding-top: 14px; display: flex; align-items: flex-start; gap: 8px; color: var(--muted); font-size: 13px; font-weight: 400; letter-spacing: 0; text-transform: none; line-height: 1.5; }
+.contact-reach svg { width: 16px; height: 16px; flex: none; margin-top: 2px; fill: none; stroke: var(--teal); stroke-width: 1.8; stroke-linejoin: round; }
+.contact-reach b { color: var(--plum); font-weight: 600; }
