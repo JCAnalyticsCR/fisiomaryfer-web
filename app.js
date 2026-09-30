@@ -1,7 +1,7 @@
 (() => {
   const whatsappNumber = '50671041425';
   const messages = {
-    general: 'Hola María, conocí Renacer Vita en su página web y quisiera agendar una valoración de fisioterapia.',
+    general: 'Hola María, conocí Renacer Vita en su página web y quisiera agendar una cita de fisioterapia.',
     onco: 'Hola María, quisiera información sobre rehabilitación oncológica.',
     sport: 'Hola María, quisiera información sobre rehabilitación deportiva.',
     ortho: 'Hola María, quisiera información sobre fisioterapia ortopédica.'
